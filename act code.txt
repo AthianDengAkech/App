@@ -1,0 +1,27 @@
+<?php
+ //defing database connection parameter
+ $host="localhost";
+ $dbuser="root";
+ $dbpassword="";
+ $db_name= "studentform";
+
+
+
+ //connecting to the database
+
+ $link= mysqli_connect($host,$dbuser,$dbpassword,$db_name);
+
+//selecting the myqsl database gto use
+
+//calling html form paprameters
+
+$Surname = $_POST['Surname'];
+$Lastname = $_POST['Lastname'];
+$Address = $_POST['Address'];
+$Email = $_POST['Email'];
+$Course = $_POST['course'];
+
+//inserting data in the database table
+
+$qry = mysqli_query($link, "insert into  stdinfo(Surname,Lastname,Address,Email,Course)
+ values('$Surname','$Lastname','$Address','$Email','$Course')") ;

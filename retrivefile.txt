@@ -1,0 +1,51 @@
+<?php
+//including connection parameters
+include ("config.php");
+
+
+
+
+$qry = mysqli_query($link,"select * from stdinfo") or die("Error from selecting values from stdinfo");
+
+if (mysqli_num_rows($qry))
+
+{
+	//creating a table with a table head
+	echo "<table border='2'>
+
+	<tr>
+	<th>Id</th>
+	<th>Surname</th>
+	<th>Lastname</th>
+	<th>Address</th>
+	<th>Email</th>
+	<th>Course</th>
+	</tr>";
+
+	while($row = mysqli_fetch_assoc($qry))
+{
+	$Id = $row['Id']; 
+	$Surname = $row['Surname'];
+	$Lastname = $row['Lastname'];
+	$Address = $row['Address'];
+	$Email = $row['Email'];
+	$Course = $row['course'];
+
+	//echo "stdinfo:".$Lastname.$Surname.$Address.$Email.$Course;
+	
+echo "<tr>
+<td>".$Id."</td>
+<td>".$Surname."</td>
+<td>".$Lastname."</td>
+<td>".$Address."</td>
+<td>".$Email." </td>
+<td> ".$Course."</td>
+</tr>";
+
+
+
+
+}
+echo "</table>";
+}
+?>
